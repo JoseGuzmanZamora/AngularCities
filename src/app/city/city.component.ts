@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { City } from '../city';
-import { CITIES } from '../mock-cities'
+import { CityService } from '../city.service';
 
 @Component({
   selector: 'app-city',
@@ -9,20 +9,22 @@ import { CITIES } from '../mock-cities'
 })
 export class CityComponent implements OnInit {
 
-  cities = CITIES;
+  cities:City[];
+  selectedCity: City;
 
-  city:City = {
-    Id:1,
-    name:"Guatemala City",
-    country:"Guatemala",
-    description:"Guatemala is a beautiful place",
-    img_url:"https://images.unsplash.com/photo-1528543010705-e7e75169b717?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80",
-    rating:100
-  }
-
-  constructor() { }
+  // we inject the service by introducing it in the constructor
+  constructor(private cityService:CityService) { }
 
   ngOnInit(): void {
+    this.getCities();
+  }
+
+  selectCity(city: City): void {
+    this.selectedCity = city;
+  }
+
+  getCities():void{
+    this.cityService.getCities().subscribe(cities => this.cities = cities);
   }
 
 }
