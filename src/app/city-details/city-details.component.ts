@@ -14,6 +14,7 @@ import { CityService } from '../city.service';
 export class CityDetailsComponent implements OnInit {
 
   @Input() city:City;
+  edit:boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,4 +35,7 @@ export class CityDetailsComponent implements OnInit {
     this.location.back();
   }
 
+  showEdit(): void{
+    this.edit = !this.edit;
+  }
 }

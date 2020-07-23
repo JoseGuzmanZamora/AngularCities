@@ -32,4 +32,8 @@ export class CityService {
   getCity(id:number): Observable<City>{
     return this.http.get<City>(this.url + "/" + id);
   }
+
+  updateCity(city:City): Observable<boolean>{
+    this.http.post(this.url)
+  }
 }

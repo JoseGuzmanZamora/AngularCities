@@ -1,1 +1,15 @@
-<h1>hola</h1>
+<div class="detail">
+    <h1>{{city.name}}</h1>
+    <h3>
+      <label>Name:
+        <input [(ngModel)]="city.name" placeholder="name"/>
+      </label><br>
+      <label>Country:
+        <input [(ngModel)]="city.country" placeholder="name"/>
+      </label><br>
+      <label>Description:
+        <input [(ngModel)]="city.description" placeholder="name"/>
+      </label><br>
+    </h3>
+    <button (click)="editCity">Edit</button>
+</div>

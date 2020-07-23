@@ -6,6 +6,8 @@
     <p>{{city.description}}</p>
 
     <button (click)="goBack()">Back</button>
-    <a routerLink="/editcity/{{city.id}}"><button>Edit</button></a>
+    <button (click)="showEdit()">Edit</button>
     <button>Delete</button>
 </div>
+
+<app-edit-city *ngIf="edit" [city]="city"></app-edit-city>
