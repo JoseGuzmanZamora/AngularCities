@@ -6,24 +6,6 @@
     <p>{{city.description}}</p>
 
     <button (click)="goBack()">Back</button>
-    <button (click)="changeEdit()">Edit</button>
+    <a routerLink="/editcity/{{city.id}}"><button>Edit</button></a>
     <button>Delete</button>
-</div>
-
-<div *ngIf="city && edit" class="detail">
-  <h1>edit</h1>
-  <img src="{{city.img_url}}">
-  <h3>
-    <label>Name:
-      <input [(ngModel)]="city.name" placeholder="name"/>
-    </label><br>
-    <label>Country:
-      <input [(ngModel)]="city.country" placeholder="name"/>
-    </label><br>
-    <label>Description:
-      <input [(ngModel)]="city.description" placeholder="name"/>
-    </label><br>
-  </h3>
-
-  <button (click)="changeEdit()">Back</button>
 </div>
