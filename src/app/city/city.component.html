@@ -1,9 +1,10 @@
 <div class="citieslist">
     <ul>
-        <li *ngFor="let city of cities" class="card" (click)="selectCity(city)">
-          <h2>{{city.name}}</h2>
-          <img src="{{city.img_url}}">
+        <li *ngFor="let city of cities" class="card">
+          <a routerLink="/citydetails/{{city.Id}}">
+            <h2>{{city.name}}</h2>
+            <img src="{{city.img_url}}">
+          </a>
         </li>
     </ul>
 </div>
-<app-city-details [city]="selectedCity"></app-city-details>

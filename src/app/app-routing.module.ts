@@ -5,8 +5,9 @@ import { CityDetailsComponent } from './city-details/city-details.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: '/cities', pathMatch: 'full' },
   {path:'cities', component:CityComponent},
-  {path:'citydetails', component:CityDetailsComponent},
+  {path:'citydetails/:id', component:CityDetailsComponent},
 ];
 
 @NgModule({

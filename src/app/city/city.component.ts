@@ -10,17 +10,12 @@ import { CityService } from '../city.service';
 export class CityComponent implements OnInit {
 
   cities:City[];
-  selectedCity: City;
 
   // we inject the service by introducing it in the constructor
   constructor(private cityService:CityService) { }
 
   ngOnInit(): void {
     this.getCities();
-  }
-
-  selectCity(city: City): void {
-    this.selectedCity = city;
   }
 
   getCities():void{

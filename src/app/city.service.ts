@@ -13,4 +13,8 @@ export class CityService {
   getCities(): Observable<City[]>{
     return of(CITIES);
   }
+
+  getCity(id:number): Observable<City>{
+    return of(CITIES.find(city => city.Id == id));
+  }
 }
