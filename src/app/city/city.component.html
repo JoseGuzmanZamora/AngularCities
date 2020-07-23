@@ -1,7 +1,7 @@
 <div class="citieslist">
     <ul>
         <li *ngFor="let city of cities" class="card">
-          <a routerLink="/citydetails/{{city.Id}}">
+          <a routerLink="/citydetails/{{city.id}}">
             <h2>{{city.name}}</h2>
             <img src="{{city.img_url}}">
           </a>

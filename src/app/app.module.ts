@@ -11,18 +11,23 @@ import { CityComponent } from './city/city.component';
 import { FormsModule } from '@angular/forms';
 import { CityDetailsComponent } from './city-details/city-details.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { EditCityComponent } from './edit-city/edit-city.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     CityComponent,
-    CityDetailsComponent
+    CityDetailsComponent,
+    EditCityComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

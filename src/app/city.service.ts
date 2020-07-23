@@ -1,20 +1,35 @@
 import { Injectable } from '@angular/core';
 import { City } from './city';
-import { CITIES } from './mock-cities'
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CityService {
 
-  constructor() { }
+  private url = 'http://localhost:5000/cities';
+
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  private handleError<T>(operation='operation', result?:T){
+    return (error:any):Observable<T> => {
+      console.error(error);
+      return of(result as T);
+    }
+  }
 
   getCities(): Observable<City[]>{
-    return of(CITIES);
+    return this.http.get<City[]>(this.url)
+      .pipe(
+        catchError(this.handleError<City[]>('getCities', []))
+      );
   }
 
   getCity(id:number): Observable<City>{
-    return of(CITIES.find(city => city.Id == id));
+    return this.http.get<City>(this.url + "/" + id);
   }
 }

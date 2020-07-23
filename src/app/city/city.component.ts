@@ -22,4 +22,8 @@ export class CityComponent implements OnInit {
     this.cityService.getCities().subscribe(cities => this.cities = cities);
   }
 
+  verificar():void{
+    console.log(this.cities);
+  }
+
 }

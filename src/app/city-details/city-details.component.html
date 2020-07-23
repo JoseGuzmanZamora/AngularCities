@@ -1,9 +1,29 @@
-<div *ngIf="city">
-    <h2>{{city.name}} Details</h2>
-    <div><span>id: </span>{{city.Id}}</div>
-    <div>
-      <label>Name:
-        <input [(ngModel)]="city.name" placeholder="name"/>
-      </label>
-    </div>
+<div *ngIf="city" class="detail">
+    <h1>{{city.name}}</h1>
+    <img src="{{city.img_url}}">
+    <div><h3><span>Name: </span>{{city.name}}</h3>
+    <div><h3><span>Country: </span>{{city.country}}</h3>
+    <p>{{city.description}}</p>
+
+    <button (click)="goBack()">Back</button>
+    <button (click)="changeEdit()">Edit</button>
+    <button>Delete</button>
+</div>
+
+<div *ngIf="city && edit" class="detail">
+  <h1>edit</h1>
+  <img src="{{city.img_url}}">
+  <h3>
+    <label>Name:
+      <input [(ngModel)]="city.name" placeholder="name"/>
+    </label><br>
+    <label>Country:
+      <input [(ngModel)]="city.country" placeholder="name"/>
+    </label><br>
+    <label>Description:
+      <input [(ngModel)]="city.description" placeholder="name"/>
+    </label><br>
+  </h3>
+
+  <button (click)="changeEdit()">Back</button>
 </div>
