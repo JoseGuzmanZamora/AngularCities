@@ -1,6 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { City } from '../city';
 import { CityService } from '../city.service'
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-edit-city',
@@ -11,11 +12,16 @@ export class EditCityComponent implements OnInit {
 
   @Input() city: City;
 
-  constructor() { }
+  constructor(private cityService:CityService, private location: Location) { }
 
   ngOnInit(): void {
   }
 
+  editCity(): void{
+    this.cityService.updateCity(this.city).subscribe(
+      res => console.log(res)
+    );
+  }
 
 
 }

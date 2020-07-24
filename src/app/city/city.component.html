@@ -1,3 +1,5 @@
+<button (click)="changeCreate()">Add City</button>
+<app-create-city *ngIf="create"></app-create-city>
 <div class="citieslist">
     <ul>
         <li *ngFor="let city of cities" class="card">

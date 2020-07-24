@@ -10,6 +10,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class CityService {
 
   private url = 'http://localhost:5000/cities';
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(
     private http: HttpClient
@@ -33,7 +36,15 @@ export class CityService {
     return this.http.get<City>(this.url + "/" + id);
   }
 
-  updateCity(city:City): Observable<boolean>{
-    this.http.post(this.url)
+  updateCity(city:City): Observable<any>{
+    return this.http.put(this.url + "/" + city.id, city, this.httpOptions).pipe(
+      catchError(this.handleError<any>('updateCity'))
+    );
+  }
+
+  createCity(city:City):Observable<any>{
+    return this.http.post(this.url,city,this.httpOptions).pipe(
+      catchError(this.handleError<City>('createCity'))
+    );
   }
 }

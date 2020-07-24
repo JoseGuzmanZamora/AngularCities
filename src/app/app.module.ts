@@ -13,13 +13,15 @@ import { CityDetailsComponent } from './city-details/city-details.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { EditCityComponent } from './edit-city/edit-city.component';
+import { CreateCityComponent } from './create-city/create-city.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CityComponent,
     CityDetailsComponent,
-    EditCityComponent
+    EditCityComponent,
+    CreateCityComponent
   ],
   imports: [
     BrowserModule,

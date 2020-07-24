@@ -10,6 +10,7 @@ import { CityService } from '../city.service';
 export class CityComponent implements OnInit {
 
   cities:City[];
+  create:boolean = false;
 
   // we inject the service by introducing it in the constructor
   constructor(private cityService:CityService) { }
@@ -24,6 +25,10 @@ export class CityComponent implements OnInit {
 
   verificar():void{
     console.log(this.cities);
+  }
+
+  changeCreate():void{
+    this.create = !this.create;
   }
 
 }
