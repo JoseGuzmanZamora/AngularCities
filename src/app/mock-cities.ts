@@ -2,7 +2,7 @@ import { City } from './city';
 
 export const CITIES: City[] = [
     {
-        Id:1,
+        id:1,
         name:"Guatemala City",
         country:"Guatemala",
         description:"Guatemala is a beautiful place",
@@ -10,7 +10,7 @@ export const CITIES: City[] = [
         rating:100
     },
     {
-        Id:2,
+        id:2,
         name:"Guatemala City",
         country:"Guatemala",
         description:"Guatemala is a beautiful place",
@@ -18,7 +18,7 @@ export const CITIES: City[] = [
         rating:100
     },
     {
-        Id:3,
+        id:3,
         name:"Guatemala City",
         country:"Guatemala",
         description:"Guatemala is a beautiful place",
@@ -26,7 +26,7 @@ export const CITIES: City[] = [
         rating:100
     },
     {
-        Id:4,
+        id:4,
         name:"Guatemala City",
         country:"Guatemala",
         description:"Guatemala is a beautiful place",
@@ -34,7 +34,7 @@ export const CITIES: City[] = [
         rating:100
     },
     {
-        Id:5,
+        id:5,
         name:"Guatemala City",
         country:"Guatemala",
         description:"Guatemala is a beautiful place",

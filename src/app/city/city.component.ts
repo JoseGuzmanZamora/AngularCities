@@ -20,7 +20,9 @@ export class CityComponent implements OnInit {
   }
 
   getCities():void{
-    this.cityService.getCities().subscribe(cities => this.cities = cities);
+    this.cityService.getCities().subscribe(
+      cities => this.cities = cities.reverse()
+    );
   }
 
   verificar():void{

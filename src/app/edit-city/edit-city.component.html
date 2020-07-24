@@ -1,5 +1,5 @@
 <div class="detail">
-    <h1>{{city.name}}</h1>
+  <div *ngIf="!edit_url">
     <h3>
       <label>Name:
         <input [(ngModel)]="city.name" placeholder="name"/>
@@ -11,5 +11,13 @@
         <input [(ngModel)]="city.description" placeholder="name"/>
       </label><br>
     </h3>
+    <div *ngIf="edit_url">
+      <label>Description:
+        <input [(ngModel)]="url" placeholder="URL"/>
+      </label><br>
+      <button (click)="editUrl()">OK</button>
+    </div>
     <button (click)="editCity()">OK</button>
+    <button (click)="backDetail()">Cancel</button>
+  </div>
 </div>

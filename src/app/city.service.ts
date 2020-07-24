@@ -18,7 +18,7 @@ export class CityService {
     private http: HttpClient
   ) { }
 
-  private handleError<T>(operation='operation', result?:T){
+  private handleError<T>(result?:T){
     return (error:any):Observable<T> => {
       console.error(error);
       return of(result as T);
@@ -28,23 +28,45 @@ export class CityService {
   getCities(): Observable<City[]>{
     return this.http.get<City[]>(this.url)
       .pipe(
-        catchError(this.handleError<City[]>('getCities', []))
+        catchError(this.handleError<City[]>([]))
       );
   }
 
   getCity(id:number): Observable<City>{
-    return this.http.get<City>(this.url + "/" + id);
+    return this.http.get<City>(this.url + "/" + id)
+      .pipe(
+        catchError(this.handleError<City>())
+      );
   }
 
   updateCity(city:City): Observable<any>{
     return this.http.put(this.url + "/" + city.id, city, this.httpOptions).pipe(
-      catchError(this.handleError<any>('updateCity'))
+      catchError(this.handleError<any>())
     );
   }
 
   createCity(city:City):Observable<any>{
     return this.http.post(this.url,city,this.httpOptions).pipe(
-      catchError(this.handleError<City>('createCity'))
+      catchError(this.handleError<City>())
+    );
+  }
+
+  updateUrl(id:number, url:string):Observable<any>{
+    var send: Object[] = [
+      {
+        "op":"replace",
+        "path":"/img_url",
+        "value":url
+      }
+    ];
+    return this.http.patch(this.url + '/' + id,send,this.httpOptions).pipe(
+      catchError(this.handleError<any>())
+    );
+  }
+
+  deleteCity(id:number): Observable<any> {
+    return this.http.delete(this.url + '/' + id,this.httpOptions).pipe(
+      catchError(this.handleError<any>())
     );
   }
 }

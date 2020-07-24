@@ -1,13 +1,24 @@
 <div *ngIf="city" class="detail">
     <h1>{{city.name}}</h1>
     <img src="{{city.img_url}}">
-    <div><h3><span>Name: </span>{{city.name}}</h3>
-    <div><h3><span>Country: </span>{{city.country}}</h3>
-    <p>{{city.description}}</p>
-
-    <button (click)="goBack()">Back</button>
-    <button (click)="showEdit()">Edit</button>
-    <button>Delete</button>
+    <div>
+        <div><h3><span>Name: </span>{{city.name}}</h3>
+        <div><h3><span>Country: </span>{{city.country}}</h3>
+        <p>{{city.description}}</p>
+    
+        <button (click)="goBack()">Back</button>
+        <button (click)="showEdit()">Edit</button>
+        <button (click)="editUrl()">Change Image</button>
+        <button (click)="delete()">Delete</button>
+    </div>
 </div>
-
-<app-edit-city class="float" *ngIf="edit" [city]="city"></app-edit-city>
+<div>
+    <app-edit-city
+    class="float"
+    *ngIf="edit || edit_url"
+    [city]="city"
+    [edit_url]="edit_url"
+    (back)="showEdit()"
+    >
+    </app-edit-city>
+</div>

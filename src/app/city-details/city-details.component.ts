@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { City } from '../city';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -15,6 +15,7 @@ export class CityDetailsComponent implements OnInit {
 
   @Input() city:City;
   edit:boolean = false;
+  edit_url:boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,5 +38,16 @@ export class CityDetailsComponent implements OnInit {
 
   showEdit(): void{
     this.edit = !this.edit;
+    console.log(this.edit)
+  }
+
+  editUrl(): void{
+    this.edit_url = !this.edit_url;
+  }
+
+  delete():void {
+    this.cityService.deleteCity(this.city.id).subscribe(res =>
+      this.goBack()
+    );
   }
 }

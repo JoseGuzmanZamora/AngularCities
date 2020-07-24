@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { City } from '../city';
 import { CityService } from '../city.service'
 import { Location } from '@angular/common'
@@ -11,10 +11,15 @@ import { Location } from '@angular/common'
 export class EditCityComponent implements OnInit {
 
   @Input() city: City;
+  @Input() edit_url: boolean;
+  @Output() back = new EventEmitter<string>();
+
+  url:string = '';
 
   constructor(private cityService:CityService, private location: Location) { }
 
   ngOnInit(): void {
+    //console.log(this.edit_url);
   }
 
   editCity(): void{
@@ -23,5 +28,13 @@ export class EditCityComponent implements OnInit {
     );
   }
 
+  editUrl():void {
+    this.cityService.updateUrl(this.city.id, this.url).subscribe(
+      res => console.log(res)
+    );
+  }
 
+  backDetail():void{
+    this.back.emit('back');
+  }
 }

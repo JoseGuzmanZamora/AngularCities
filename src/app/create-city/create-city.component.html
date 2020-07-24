@@ -1,17 +1,18 @@
 <div>
     <h3>
       <label>Name:
-        <input [(ngModel)]="new_city.name" placeholder="name"/>
+        <input [(ngModel)]="new_city.name" placeholder="Name"/>
       </label><br>
       <label>Country:
-        <input [(ngModel)]="new_city.country" placeholder="name"/>
+        <input [(ngModel)]="new_city.country" placeholder="Country"/>
       </label><br>
       <label>Description:
-        <input [(ngModel)]="new_city.description" placeholder="name"/>
+        <input [(ngModel)]="new_city.description" placeholder="Description"/>
       </label><br>
       <label>Image (URL):
-        <input [(ngModel)]="new_city.img_url" placeholder="name"/>
+        <input [(ngModel)]="new_city.img_url" placeholder="URL"/>
       </label>
     </h3>
     <button (click)="createCity()">ADD</button>
+    <button (click)="backCity()">Cancel</button>
 </div>
