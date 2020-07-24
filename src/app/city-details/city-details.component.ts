@@ -38,7 +38,6 @@ export class CityDetailsComponent implements OnInit {
 
   showEdit(): void{
     this.edit = !this.edit;
-    console.log(this.edit)
   }
 
   editUrl(): void{

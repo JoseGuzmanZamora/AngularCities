@@ -11,13 +11,18 @@
         <input [(ngModel)]="city.description" placeholder="name"/>
       </label><br>
     </h3>
-    <div *ngIf="edit_url">
-      <label>Description:
-        <input [(ngModel)]="url" placeholder="URL"/>
-      </label><br>
-      <button (click)="editUrl()">OK</button>
-    </div>
     <button (click)="editCity()">OK</button>
     <button (click)="backDetail()">Cancel</button>
   </div>
+</div>
+
+<div *ngIf="edit_url">
+  <div><h3><span>Name: </span>{{city.name}}</h3>
+  <div><h3><span>Country: </span>{{city.country}}</h3>
+  <p>{{city.description}}</p>
+  <label>Url:
+    <input [(ngModel)]="url" placeholder="URL"/>
+  </label>
+  <button (click)="editUrl()">OK</button>
+  <button (click)="backUrl()">Cancel</button>
 </div>
